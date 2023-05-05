@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div id="root"></div>
+    <div id="ulElem"></div>
+
+
+    <script type="text/babel">
+        // VD1: Tạo <h1 title="Hello" class="heading">Hello guys</h1>
+        // DOM
+        // const h1DOM = document.createElement('h1')
+        // h1DOM.title = 'Hello'
+        // h1DOM.className = 'heading'
+        // h1DOM.innerText = 'Hello guys'
+
+        // document.body.appendChild(h1DOM)
+
+        // React
+        // React.createElement(type, props, chidlren, n)
+        // const h1React = React.createElement('h1', {
+        //     title: 'Hello',
+        //     className: 'heading'
+        // }, 'Hello guys')
+
+        // console.dir(h1DOM);
+        // console.log(h1React);
+
+        // ----------------------------------------------------------
+        // VD2: Tạo  
+        // <ul>
+        //     <li>Javascript</li>
+        //     <li>Reactjs</li>
+        // </ul>
+        // DOM
+        // const ulDOM = document.createElement('ul')
+        // const liDom1 = document.createElement('li')
+        // liDom1.innerText = 'Javascript'
+
+        // const liDom2 = document.createElement('li')
+        // liDom2.innerText = 'Reactjs'
+
+        // ulDOM.appendChild(liDom1)
+        // ulDOM.appendChild(liDom2)
+        // document.body.appendChild(ulDOM)
+
+        // React
+        // const ulReact = React.createElement(
+        //     'ul',
+        //     null,
+        //     React.createElement('li', null, 'Javascript'),
+        //     React.createElement('li', null, 'Reactjs'),
+        // )
+        // console.log(ulReact);
+
+        // ------------------------------------------------------
+        // VD3: 
+        // DOM
+        // const divDOM = document.createElement('div')
+        // divDOM.className = 'post-item'
+
+        // const h2DOM = document.createElement('h2')
+        // h2DOM.title = 'Học React tại F8'
+        // h2DOM.innerText = 'Học ReactJS'
+
+        // const pDOM = document.createElement('p')
+        // pDOM.innerText = 'Học ReactJS từ cơ bản đến nâng cao'
+
+        // divDOM.appendChild(h2DOM)
+        // divDOM.appendChild(pDOM)
+        // document.body.appendChild(divDOM)
+
+        // // React
+        // const divReact = React.createElement(
+        //     'div',
+        //     { className: 'post-item' },
+        //     React.createElement('h2', { title: 'Học React tại F8' }, 'Học ReactJS'),
+        //     React.createElement('p', null, 'Học ReactJS từ cơ bản đến nâng cao'),
+        // )
+
+        // Get root element
+        // const container = document.getElementById('root')
+
+        // React@17
+        // React-DOM --> render UI
+        // ReactDOM.render(divReact, container)
+
+        // React@18
+        // const root = ReactDom.createRoot(container)
+        // root.render(divReact)
+
+        // ---------------------------------------
+
+        // const courses = [
+        //     {
+        //         name: 'html, css'
+        //     },
+        //     {
+        //         name: 'javascript'
+        //     },
+        //     {
+        //         name: 'reactjs'
+        //     }
+        // ]
+        // const jsx = (
+        //     <ul>
+        //         {
+        //             courses.map(function (course, index) {
+        //                 return <li key={index}>{course.name}</li>
+        //             })
+        //         }
+        //     </ul>
+        // )
+        // ReactDOM.render(jsx, document.querySelector('#ulElem'))
+
+        // -------------------------------
+        // function Header() {
+        //     return (
+        //         <div className="header">New Header</div>
+        //     )
+        // }
+
+        // class Content extends React.Component {
+        //     render() {
+        //         return (
+        //             <div className="content">New Content</div>
+        //         )
+        //     }
+        // }
+
+        // const app = (
+        //     <div className="wrapper">
+        //         <Header />
+        //         <Content />
+        //         <div className="footer">Footer</div>
+        //     </div>
+        // )
+        // ReactDOM.render(app, document.querySelector('#app'))
+
+        //-------------------------------------
+        // function PostItem(props) {
+        //     return (
+        //         <div className="post-item">
+        //             <img src={props.image} />
+        //             <h2 onClick={function () { alert(props.title) }} className="post-title">{props.title}</h2>
+        //             <p className="post-desc">{props.description}</p>
+        //             <p className="post-published">{props.published}</p>
+        //         </div>
+        //     )
+        // }
+
+        // function Post() {
+        //     return (
+        //         <div id="wrapper">
+        //             <PostItem
+        //                 title="1 hình ảnh đẹp"
+        //                 image="https://img5.thuthuatphanmem.vn/uploads/2022/01/12/anh-dep-ve-sans_075155307.jpg"
+        //                 description="1 Bạn có biết hình ảnh này không?"
+        //                 published="1 Một ngày trước"
+        //             />
+        //             <PostItem
+        //                 title="2 hình ảnh đẹp"
+        //                 image="https://img5.thuthuatphanmem.vn/uploads/2022/01/12/anh-dep-ve-sans_075155307.jpg"
+        //                 description="2 Bạn có biết hình ảnh này không?"
+        //                 published="2 Một ngày trước"
+        //             />
+        //         </div>
+        //     )
+        // }
+
+        // ReactDOM.render(<Post />, document.querySelector('#app'))
+
+        // -----------------------------------------
+        // function Parent() {
+
+        //     return (<div>
+
+        //         <h1>Dang Nhap</h1>
+        //         <Children type="text" label="Tai Khoan"/>
+        //         <Children type="password" label="Mat Khau"/>
+        //         <button></button>
+        //     </div>)
+        // }
+        // function Children({label,type}) {
+        //     return (
+        //         <React.Fragment>
+        //         <div>
+        //             <label for="">{label}</label>
+        //             <input type={type} name="" id=""/>
+        //         </div>
+        //     </React.Fragment>
+        //     )
+        // }
+
+        // ReactDOM.render(<Parent />, document.querySelector('#app'))
+        // ---------------------------------------------------
+
+        function Parent() {
+
+            return (<div>
+                <Children>
+                   nguyen hoang vu 
+                   <h1>khanh</h1>
+                   <button>CLick</button>
+                </Children>
+            </div>)
+        }
+        function Children({children}) {
+            return (
+                    <div>
+                       {children}
+                    </div>
+            )
+        }
+
+        ReactDOM.render(<Parent />, document.querySelector('#app'))
+
+    </script>
+</body>
+
+</html>
